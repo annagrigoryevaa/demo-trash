@@ -2,12 +2,17 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func main() {
-	const usdToEur float64 = 0.86
-	const usdToRub float64 = 81.2
-	eur := 1.0
-	rub := usdToRub * eur / usdToEur
-	fmt.Print(rub)
+	const IMTPower = 2
+	var userHeight, userKg float64
+	fmt.Print("Калькулятор ИМТ\n")
+	fmt.Print("Ввевдите рост в метрах: ")
+	fmt.Scan(&userHeight)
+	fmt.Print("Введите вес: ")
+	fmt.Scan(&userKg)
+	IMT := userKg / math.Pow(userHeight, IMTPower)
+	fmt.Print("Ваш индекс массы тела: ", IMT)
 }
