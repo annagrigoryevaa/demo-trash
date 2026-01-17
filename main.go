@@ -80,13 +80,13 @@ func getUserInput() (float64, float64, error) {
 	var userHeight, userKg float64
 
 	fmt.Print("Ввевдите рост в см: ")
-	fmt.Scan(&userHeight)
+	fmt.Scanln(&userHeight)
 	if userHeight <= 0 {
 		return 0, 0, errors.New("Укажите рост верно")
 
 	}
 	fmt.Print("Введите вес: ")
-	fmt.Scan(&userKg)
+	fmt.Scanln(&userKg)
 	if userKg <= 0 {
 		return 0, 0, errors.New("Укажите вес верно")
 	}
@@ -98,13 +98,14 @@ func RepeatCalculation() bool {
 	var answer string
 	for i := 0; ; i++ {
 		fmt.Println("Хотите продолжить?")
+		fmt.Scanln()
 		fmt.Scanln(&answer)
 		if answer == "да" {
 			return true
 		} else if answer == "нет" {
 			return false
-		} else {
-			fmt.Println("Пожалуйста, введите 'да' или 'нет'.")
 		}
+		fmt.Println("Пожалуйста, введите 'да' или 'нет'.")
+
 	}
 }
